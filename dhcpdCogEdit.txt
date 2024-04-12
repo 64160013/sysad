@@ -1,0 +1,17 @@
+include "/etc/dhcp/ddns-keys/dhcp1.key"; 
+ddns-updates on;
+ddns-update-style standard; 
+zone templab.lan. 
+{
+   
+       primary 172.16.17.10;
+   
+      key dhcp1.templab.lan; 
+} 
+zone 16.172.in-addr.arpa. 
+{
+   
+      primary 172.16.17.10;
+   
+     key dhcp1.templab.lan; 
+}
