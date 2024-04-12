@@ -1,0 +1,17 @@
+include "/etc/bind/dhcp1.key";
+
+zone "templab.lan" {
+  type master;
+  file "/var/lib/bind/db.templab.lan";
+  update-policy {
+  grant dhcp1.templab.lan wildcard *.templab.lan A DHCID;
+  };
+};
+
+zone "17.16.172.in-addr.arpa" {
+  type master;
+  file "/var/lib/bind/db.172.16";
+  update-policy {
+  grant dhcp1.templab.lan wildcard *.16.172.in-addr.arpa PTR;
+  };
+};
